@@ -60,6 +60,47 @@ def tr_house(r):
             % (cls, d, addr, yr, lp, bp, total, gross, res, net))
 
 
+
+def site_blocks():
+    """為每筆可定位的地號產生『空照 + 可環視街景』對照區塊。"""
+    out = []
+    for r in rows_land:
+        d, seg, p_, total, unit, dist, lat, lon, note, kind = r
+        if lat is None:
+            continue
+        if kind == 'self':
+            badge = '<span class="badge self-b">評估標的</span>'
+            meta = '%s 坪' % p_
+        else:
+            badge = '<span class="badge">%s</span>' % (
+                ('%.1f km' % (dist / 1000.0)) if dist >= 1000 else ('%d m' % dist))
+            meta = '%s 坪 ｜ 成交 %s ｜ <b>%s 萬/坪</b>' % (p_, d, unit)
+        sat = ('https://maps.google.com/maps?q=%.6f,%.6f&amp;t=k&amp;z=19&amp;output=embed'
+               % (lat, lon))
+        sv = ('https://maps.google.com/maps?q=%.6f,%.6f&amp;layer=c&amp;cbll=%.6f,%.6f'
+              '&amp;cbp=11,0,0,0,0&amp;output=svembed' % (lat, lon, lat, lon))
+        dirs = ' '.join(
+            '<a class="dir" target="_blank" rel="noopener" '
+            'href="https://www.google.com/maps?q&amp;layer=c&amp;cbll=%.6f,%.6f&amp;cbp=11,%d,0,0,0">%s</a>'
+            % (lat, lon, h, nm)
+            for h, nm in [(0, '朝北'), (90, '朝東'), (180, '朝南'), (270, '朝西')])
+        out.append(
+            '<div class="site">'
+            '<div class="site-h">%s<span class="site-t">%s</span>'
+            '<span class="site-m">%s</span></div>'
+            '<div class="site-b">'
+            '<figure><iframe loading="lazy" src="%s"></iframe>'
+            '<figcaption>空照圖（衛星，可縮放）</figcaption></figure>'
+            '<figure><iframe loading="lazy" src="%s"></iframe>'
+            '<figcaption>街景（<b>可直接拖曳環視四周</b>）</figcaption></figure>'
+            '</div>'
+            '<div class="site-f">四向街景另開：%s　<span class="note">%s</span></div>'
+            '</div>' % (badge, seg, meta, sat, sv, dirs, note))
+    return ''.join(out)
+
+
+SITES = site_blocks()
+
 LAND = ''.join(tr_land(r) for r in rows_land)
 HOUSE = ''.join(tr_house(r) for r in rows_house)
 
@@ -107,6 +148,20 @@ tr.na td{color:#999}
 .muted{color:#aaa}
 .sv-link{color:var(--g);text-decoration:none;border-bottom:1px solid #C6DCB8;font-size:13px}
 .sv-link:hover{color:var(--f);border-bottom-color:var(--f)}
+.site{border:1px solid var(--bd);margin:16px 0;background:#fff}
+.site-h{background:#F8F8F5;border-bottom:1px solid var(--bd);padding:11px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.site-t{font-weight:700;color:var(--f);font-size:16px}
+.site-m{font-size:13.5px;color:#666;margin-left:auto}
+.badge{background:var(--g);color:#fff;font-size:12.5px;font-weight:600;padding:2px 9px;border-radius:2px;font-family:Inter,sans-serif}
+.badge.self-b{background:var(--gold)}
+.site-b{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+.site-b figure{margin:0}
+.site-b iframe{width:100%;height:280px;border:1px solid var(--bd);display:block;background:#EEE}
+.site-b figcaption{font-size:12.5px;color:#666;margin-top:6px}
+.site-f{border-top:1px solid var(--bd);padding:9px 16px;font-size:13px;background:#FCFCFA}
+.dir{display:inline-block;color:var(--g);text-decoration:none;border:1px solid #C6DCB8;border-radius:2px;padding:1px 9px;margin-right:4px;font-size:12.5px}
+.dir:hover{background:var(--g);color:#fff;border-color:var(--g)}
+@media(max-width:760px){.site-b{grid-template-columns:1fr}}
 .callout{background:var(--cream);border-left:4px solid var(--gold);padding:16px 20px;margin:18px 0;font-size:14.5px}
 .callout b{color:var(--f)}
 .warn{background:#FBF1EE;border-left:4px solid var(--dn)}
@@ -265,7 +320,14 @@ __DIAGRAM__
 <p style="font-size:14px;color:#555"><b>兩案位置：</b>本案自治段 367 位於<b>沙田路一段街廓內</b>，鄰近彰化銀行大肚分行、台中商業銀行大肚分行與大肚國小，
 屬大肚市區的金融與生活機能核心；福利段 316 位於育樂街一帶，同為大肚市區成熟住宅區。</p>
 
-<h2>六、交叉驗證一：福利路巷內透天扣建物殘值反推地價</h2>
+<h2>六、各案現場環境對照（空照・街景）</h2>
+<p style="font-size:14px;color:#666;margin:0 0 4px">基地價值有很大一部分來自「周遭環境」——臨路寬窄、鄰房新舊、有無嫌惡設施、街廓完整度。
+以下依距離順序，逐筆列出經地籍定位後的<b>空照圖與實景街景</b>，可直接在頁面上縮放與拖曳環視，親自比較各比較案與本案的環境差異。</p>
+<div class="callout"><b>怎麼看：</b>左側空照看<b>街廓紋理與基地方正度</b>（屋頂密度高＝開發完整、留白多＝仍有素地）；
+右側街景<b>用滑鼠拖曳即可轉一圈</b>，看臨路寬度、鄰房屋齡與巷弄整潔度。下方「四向街景」按鈕另開視窗，直接跳到朝北／東／南／西的固定視角。</p></div>
+__SITES__
+
+<h2>七、交叉驗證一：福利路巷內透天扣建物殘值反推地價</h2>
 <p style="font-size:14px;color:#666;margin:0 0 4px">本次改採<b>同一生活圈、同為巷內</b>的透天成交反推，比初版採用的自治路店住段更貼近。建物殘值依屋齡估：10 年內 7 萬/坪、30 年 4 萬/坪、45 年以上 2.5 萬/坪。</p>
 <table><thead><tr><th>成交</th><th>門牌</th><th class="n">建成年</th><th class="n">地坪</th><th class="n">建坪</th><th class="n">總價(萬)</th><th class="n">含建物<br>地坪單價</th><th class="n">建物殘值<br>(萬/坪)</th><th class="n">反推地價<br>(萬/坪)</th></tr></thead>
 <tbody>__HOUSE__</tbody></table>
@@ -274,7 +336,7 @@ __DIAGRAM__
 以 33 – 37 萬為「<b>單戶 30 坪級距、已開發完成</b>」的地價水準，本案為<b>整批素地</b>，需扣除開發風險與時間成本，
 折讓 20 – 25% 後約 <b>25 – 29 萬/坪</b>，與比較法結論吻合。</div>
 
-<h2>七、交叉驗證二：開發效益反推（買方付得起多少）</h2>
+<h2>八、交叉驗證二：開發效益反推（買方付得起多少）</h2>
 <div class="card">
 <h3>情境：沿巷切分 4 戶街屋型透天（每戶地約 30.9 坪、建約 62 坪）</h3>
 <table><thead><tr><th>項目</th><th class="n">保守</th><th class="n">樂觀</th><th>依據</th></tr></thead><tbody>
@@ -290,7 +352,7 @@ __DIAGRAM__
 到 <b>29 – 30 萬/坪</b>仍屬合理。三法交會處即為 <b>25 – 29 萬/坪</b> 的合理成交帶。</p>
 </div>
 
-<h2>八、銷售策略建議</h2>
+<h2>九、銷售策略建議</h2>
 <div class="two">
 <div class="card"><h3>方案 A：整批出售（建議）</h3>
 <ul>
@@ -314,7 +376,7 @@ __DIAGRAM__
 ③ 開價 3,950 萬、心裡守 3,100 萬；若買方是自住自建、願意快速付款，<b>3,300 萬以上即可成交</b>。
 ④ 上架前<b>花 30 – 50 萬把地整乾淨</b>，是本案投報率最高的一筆錢 —— 買方看到雜草空地會殺價，看到方整素地會想像自己的房子。</div>
 
-<h2>九、資料來源與免責</h2>
+<h2>十、資料來源與免責</h2>
 <ul style="font-size:14px;color:#555">
 <li>地籍資料與定位：內政部地籍圖資網路便民服務系統（easymap.moi.gov.tw，圖資版本 2026.08.21），以地段代碼＋地號逐筆查得面積、115 年度公告現值與宗地位置；座標由 EPSG:3857 轉 WGS84，直線距離以 Haversine 公式計算至宗地幾何中心，誤差約 ±10 公尺。</li>
 <li>成交資料：內政部不動產交易實價查詢服務網，臺中市大肚區 112 年 Q1 – 115 年 Q2 買賣案件。</li>
@@ -332,7 +394,7 @@ __DIAGRAM__
 <footer><div class="inner">
 <span>瑞禾開發｜建築、房產整合團隊</span>
 <span>張現傑</span>
-<span>製表日期：2026.09.22（第 4 版・含地號定位與距離）</span>
+<span>製表日期：2026.09.22（第 5 版・含環境對照）</span>
 </div></footer>
 </body></html>"""
 
@@ -344,6 +406,7 @@ html = (BODY.replace("__CSS__", CSS)
             .replace("__SV2__", SV2)
             .replace("__SV3__", SV3)
             .replace("__LAND__", LAND)
+            .replace("__SITES__", SITES)
             .replace("__HOUSE__", HOUSE))
 
 with open('大肚自治段367-369土地估價報告.html', 'w', encoding='utf-8') as f:
