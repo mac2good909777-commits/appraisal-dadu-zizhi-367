@@ -209,6 +209,14 @@ DIAGRAM = """
 
 BODY = """<!DOCTYPE html>
 <html lang="zh-Hant"><head><meta charset="utf-8">
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H5VLHW8761"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H5VLHW8761');
+</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>大肚自治段土地估價</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -223,7 +231,7 @@ BODY = """<!DOCTYPE html>
 
 <div class="wrap"><main>
 
-<p style="margin:0 0 18px"><a href="./owner.html" style="display:inline-block;background:#F5F3EE;border:1px solid #C0A434;border-radius:4px;padding:9px 16px;color:#2B5937;text-decoration:none;font-size:14.5px;font-weight:600">📄 給屋主的簡要版（大字・重點摘要）→</a></p>
+<p style="margin:0 0 18px;display:flex;gap:10px;flex-wrap:wrap"><a href="./explain.html" style="display:inline-block;background:#F5F3EE;border:1px solid #C0A434;border-radius:4px;padding:9px 16px;color:#2B5937;text-decoration:none;font-size:14.5px;font-weight:600">✉ 給地主的說明版 →</a><a href="./owner.html" style="display:inline-block;background:#F5F3EE;border:1px solid #C0A434;border-radius:4px;padding:9px 16px;color:#2B5937;text-decoration:none;font-size:14.5px;font-weight:600">📄 重點摘要版（大字）→</a></p>
 <h2>一、標的概要</h2>
 <div class="kpis">
 <div class="kpi"><div class="lb">土地總面積<span class="note"> ・純建地</span></div><div class="v">123.5<span class="u"> 坪</span></div></div>
@@ -640,7 +648,7 @@ __SITES__
 <footer><div class="inner">
 <span>瑞禾開發｜建築、房產整合團隊</span>
 <span>張現傑</span>
-<span>製表日期：2026.09.22（第 12 版）</span>
+<span>製表日期：2026.09.22（第 13 版）</span>
 </div></footer>
 </body></html>"""
 

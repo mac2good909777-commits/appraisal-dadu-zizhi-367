@@ -67,6 +67,14 @@ footer .cm{color:#B9CDB9;font-size:15px;margin-top:10px;line-height:1.7}
 
 HTML = """<!DOCTYPE html>
 <html lang="zh-Hant"><head><meta charset="utf-8">
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H5VLHW8761"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H5VLHW8761');
+</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>土地價值評估摘要</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -173,9 +181,8 @@ HTML = """<!DOCTYPE html>
 </div>
 </div>
 
-<a class="more" href="./index.html">
-想看詳細的行情分析與資料來源？<br>點這裡看完整報告 →
-</a>
+<a class="more" href="./explain.html">想知道價格是怎麼算出來的？<br>點這裡看完整說明 →</a>
+<a class="more" href="./index.html" style="margin-top:12px">想看所有資料來源與分析？<br>點這裡看完整報告 →</a>
 
 </main>
 
