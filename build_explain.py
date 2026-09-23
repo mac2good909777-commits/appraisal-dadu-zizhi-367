@@ -183,13 +183,12 @@ __GA__
 <p>三筆土地民國 68 年取得，持有將近 47 年，依法可以減徵 40%。土地增值稅合計約 <b>153 萬</b>，大約是成交總價的 4.5%。這個數字我們用財政部官方網站的試算工具核對過，與謄本估算完全相同。</p>
 
 <div class="data">
-<div class="r"><span class="k">若以 3,100 萬成交</span><span class="v">扣稅後約 2,947 萬</span></div>
-<div class="r"><span class="k">若以 3,340 萬成交</span><span class="v">扣稅後約 3,187 萬</span></div>
-<div class="r"><span class="k">若以 3,580 萬成交</span><span class="v">扣稅後約 3,427 萬</span></div>
-<div class="r"><span class="k">土地增值稅（兩位分攤）</span><span class="v">367＋368 約 100 萬<br>369 約 53 萬</span></div>
+<div class="r"><span class="k">土地增值稅合計</span><span class="v">約 153 萬</span></div>
+<div class="r"><span class="k">兩位分攤</span><span class="v">367＋368 約 100 萬<br>369 約 53 萬</span></div>
+<div class="r"><span class="k">各價位實拿金額</span><span class="v">請見前方「單價與總價對照」</span></div>
 </div>
 
-<p style="font-size:16px;color:#6E6E6E">上表尚未扣除仲介服務費與代書費用。另外提醒一點：這三筆是素地、地上沒有房屋，<b>不符合自用住宅優惠稅率的條件</b>，所以是按一般稅率計算。好消息是，您名下「一生一次」的自用住宅優惠資格<b>不會因為這次交易被用掉</b>，將來出售自住房屋時仍然保留。</p>
+<p style="font-size:16px;color:#6E6E6E">上表尚未扣除仲介服務費與代書費用。另外提醒一點：這三筆是素地、地上沒有房屋，<b>不符合自用住宅優惠稅率的條件</b>，所以是按一般稅率計算。另外，您名下「一生一次」的自用住宅優惠資格<b>不會因為這次交易被用掉</b>，將來出售自住房屋時仍然保留。</p>
 
 <h2>我們建議的做法</h2>
 
