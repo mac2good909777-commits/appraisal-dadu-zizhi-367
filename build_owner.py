@@ -193,9 +193,6 @@ HTML = """<!DOCTYPE html>
 </div>
 </div>
 
-<a class="more" href="./explain.html">想知道價格是怎麼算出來的？<br>點這裡看完整說明 →</a>
-<a class="more" href="./index.html" style="margin-top:12px">想看所有資料來源與分析？<br>點這裡看完整報告 →</a>
-
 </main>
 
 <footer>
