@@ -180,7 +180,10 @@ li{margin-bottom:6px}
 footer{background:var(--f);color:#fff;font-size:13px;padding:22px 40px;margin-top:48px}
 footer .inner{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 footer span{color:#AFC3AF}
-@media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}.concl{grid-template-columns:1fr}.two,.sv{grid-template-columns:1fr}main{padding:24px}header{padding:20px 24px}header .inner{flex-direction:column;align-items:flex-start;gap:14px}}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+.tw table{margin:0;min-width:560px}
+@media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}.concl{grid-template-columns:1fr}.two,.sv{grid-template-columns:1fr}main{padding:20px 16px}header{padding:20px 16px}header .inner{flex-direction:column;align-items:flex-start;gap:14px}header h1{font-size:23px}body{font-size:16px}h2{font-size:20px}h3{font-size:16.5px}table{font-size:13.5px}th,td{padding:8px 9px}.site-b iframe{height:230px}.site-m{margin-left:0;width:100%}.concl .p{font-size:24px}.kpi .v{font-size:26px}.callout{padding:14px 15px;font-size:14px}ul{margin-left:18px}}
+@media(max-width:420px){.kpis{grid-template-columns:1fr}.dir{margin-bottom:4px}}
 @media print{header,footer{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 """
 
@@ -219,6 +222,7 @@ BODY = """<!DOCTYPE html>
 
 <div class="wrap"><main>
 
+<p style="margin:0 0 18px"><a href="./owner.html" style="display:inline-block;background:#F5F3EE;border:1px solid #C0A434;border-radius:4px;padding:9px 16px;color:#2B5937;text-decoration:none;font-size:14.5px;font-weight:600">📄 給屋主的簡要版（大字・重點摘要）→</a></p>
 <h2>一、標的概要</h2>
 <div class="kpis">
 <div class="kpi"><div class="lb">土地總面積<span class="note"> ・純建地</span></div><div class="v">123.5<span class="u"> 坪</span></div></div>
@@ -278,12 +282,12 @@ __DIAGRAM__
 <h2>四、產權結構與稅負（謄本查證）</h2>
 <p style="font-size:14px;color:#666;margin:0 0 4px">依 115.09.23 調閱之土地電傳資料整理。
 基於個人資料保護，<b>僅列所有權人姓氏與戶籍所在縣市</b>，不揭露完整姓名、統一編號與詳細住址。</p>
-<table><thead><tr><th>地號</th><th class="n">登記面積(㎡)</th><th class="n">坪</th><th>所有權人</th><th>取得原因</th><th class="n">土增稅(一般)<br><span class="note" style="color:#dfe">適用</span></th><th class="n">土增稅(自宅)<br><span class="note" style="color:#dfe">本案不適用</span></th></tr></thead><tbody>
+<div class="tw"><table><thead><tr><th>地號</th><th class="n">登記面積(㎡)</th><th class="n">坪</th><th>所有權人</th><th>取得原因</th><th class="n">土增稅(一般)<br><span class="note" style="color:#dfe">適用</span></th><th class="n">土增稅(自宅)<br><span class="note" style="color:#dfe">本案不適用</span></th></tr></thead><tbody>
 <tr><td>自治段 367</td><td class="n">132.57</td><td class="n">40.10</td><td>陳姓（臺中市）· 單獨所有</td><td class="note">68 年買賣</td><td class="n">49.7 萬</td><td class="n">19.8 萬</td></tr>
 <tr><td>自治段 368</td><td class="n">135.56</td><td class="n">41.01</td><td>陳姓（臺中市）· 單獨所有<br><span class="note">與 367 為同一人</span></td><td class="note">68 年買賣</td><td class="n">50.8 萬</td><td class="n">20.2 萬</td></tr>
 <tr><td>自治段 369</td><td class="n">140.14</td><td class="n">42.39</td><td><b>陳姓（臺中市）· 單獨所有</b><br><span class="note">與 367、368 <b>非同一人</b></span></td><td class="note">97 年配偶贈與</td><td class="n">52.5 萬</td><td class="n">20.9 萬</td></tr>
 <tr class="self"><td><b>合計</b></td><td class="n"><b>408.27</b></td><td class="n"><b>123.50</b></td><td><b>分屬二位所有權人</b></td><td></td><td class="n"><b>152.9 萬</b></td><td class="n"><b>60.9 萬</b></td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <div class="callout warn"><b>⚠ 發現一：三筆土地並非同一人所有。</b>
 367、368（合計 81.11 坪）屬同一所有權人；<b>369（42.39 坪）屬另一位所有權人</b>。
@@ -307,10 +311,10 @@ __DIAGRAM__
 應「兩旁均等退讓，以合計達到<b>六公尺</b>寬度之邊界線作為建築線」。<br>
 本巷長約 <b>114.6 公尺</b>，無論認定為單向或雙向出口<b>均已超過門檻</b>；而現況寬度僅 5.18 公尺，<b>未達 6 公尺</b>
 —— 因此<b>本案很可能需要退讓後始得指定建築線</b>。
-<table style="margin-top:10px"><thead><tr><th>退讓情形</th><th class="n">退讓寬度</th><th class="n">損失面積</th><th>說明</th></tr></thead><tbody>
+<div class="tw"><table style="margin-top:10px"><thead><tr><th>退讓情形</th><th class="n">退讓寬度</th><th class="n">損失面積</th><th>說明</th></tr></thead><tbody>
 <tr class="hl"><td>兩旁均等退讓（條文原則）</td><td class="n">0.41 m</td><td class="n b">約 4.2 坪</td><td class="note">本案與對側各退一半，為最可能情形</td></tr>
 <tr><td>單側退足（保守假設）</td><td class="n">0.82 m</td><td class="n b">約 8.5 坪</td><td class="note">若對側建物已無退讓空間，可能要求本案退足</td></tr>
-</tbody></table>
+</tbody></table></div>
 <b>價值影響：</b>以 27 萬/坪計，退讓 4.2 坪約影響 <b>113 萬</b>、退讓 8.5 坪約影響 <b>230 萬</b>（約總價的 3% – 7%）。
 退讓部分通常不得計入法定空地與容積基地面積，屬實質損失。<br>
 <b>這是本案目前最需要花錢釐清的一件事。</b>指定建築線規費僅新臺幣 500 元（每增一條道路加收 100 元），
@@ -349,13 +353,13 @@ __DIAGRAM__
 <h3>屋主實拿試算（扣土地增值稅）</h3>
 <p style="font-size:14px;color:#666;margin:0 0 4px">三筆前次移轉現值均為民國 68 年 11 月，持有逾 46 年。
 下表<b>以一般用地稅率計算</b>（依上述，本案不適用自用住宅優惠稅率）。</p>
-<table><thead><tr><th class="n">成交單價</th><th class="n">成交總價</th><th class="n">土增稅(一般)</th><th class="n">屋主淨得(未計服務費)</th></tr></thead><tbody>
+<div class="tw"><table><thead><tr><th class="n">成交單價</th><th class="n">成交總價</th><th class="n">土增稅(一般)</th><th class="n">屋主淨得(未計服務費)</th></tr></thead><tbody>
 <tr><td class="n">22 萬/坪（底線）</td><td class="n">2,717 萬</td><td class="n">－153 萬</td><td class="n b">2,564 萬</td></tr>
 <tr class="hl"><td class="n">25 萬/坪</td><td class="n">3,088 萬</td><td class="n">－153 萬</td><td class="n b">2,935 萬</td></tr>
 <tr class="hl"><td class="n">27 萬/坪</td><td class="n">3,334 萬</td><td class="n">－153 萬</td><td class="n b">3,182 萬</td></tr>
 <tr class="hl"><td class="n">29 萬/坪</td><td class="n">3,582 萬</td><td class="n">－153 萬</td><td class="n b">3,429 萬</td></tr>
 <tr><td class="n">32 萬/坪（開價）</td><td class="n">3,952 萬</td><td class="n">－153 萬</td><td class="n b">3,799 萬</td></tr>
-</tbody></table>
+</tbody></table></div>
 <div class="callout"><b>好消息：稅負相對輕。</b>雖然持有近 47 年，但公告現值自民國 68 年的 2,100 元/㎡ 僅漲至 115 年的 20,600 元/㎡（約 9.8 倍），
 而土增稅係按公告現值計算、非按市價，<b>三筆合計約 153 萬，僅約成交總價的 4.5%</b>。
 兩位所有權人按各自面積分擔：367＋368 約 100.4 萬、369 約 52.5 萬。
@@ -363,11 +367,11 @@ __DIAGRAM__
 
 <h3>稅額驗證：三方獨立核對</h3>
 <p>土地增值稅為本次評估中<b>唯一涉及法定稅額的數字</b>，已用三種獨立來源交叉核對，結果完全一致：</p>
-<table><thead><tr><th>驗證來源</th><th class="n">367 一般稅率<br><span class="note" style="color:#dfe">本案適用</span></th><th class="n">367 自宅稅率<br><span class="note" style="color:#dfe">僅供對照</span></th><th>說明</th></tr></thead><tbody>
+<div class="tw"><table><thead><tr><th>驗證來源</th><th class="n">367 一般稅率<br><span class="note" style="color:#dfe">本案適用</span></th><th class="n">367 自宅稅率<br><span class="note" style="color:#dfe">僅供對照</span></th><th>說明</th></tr></thead><tbody>
 <tr><td>① 謄本電傳系統估算</td><td class="n">496,534</td><td class="n">197,621</td><td class="note">115.09.23 調閱之原始估算值</td></tr>
 <tr><td>② 本報告獨立試算</td><td class="n">496,534</td><td class="n">197,621</td><td class="note">依土地稅法第 33 條公式自行計算</td></tr>
 <tr class="hl"><td><b>③ 財政部稅務入口網官方試算</b></td><td class="n b">496,534</td><td class="n b">197,621</td><td class="note">etax.nat.gov.tw 線上試算工具實際輸入驗證</td></tr>
-</tbody></table>
+</tbody></table></div>
 <div class="callout ok"><b>✓ 三方數值完全相同，無任何差異。</b>採用之計算參數如下：
 <ul style="margin-top:6px">
 <li><b>臺灣地區消費者物價總指數 271.10%</b>（民國 68 年 11 月為基期至 115 年）
@@ -390,13 +394,13 @@ __DIAGRAM__
 <b>其餘 1/4 由 4 人持有，本案屋主之持分比例尚未查明</b>。建議調閱完整謄本或請屋主提供權狀確認。</div>
 <h3>⚠ 關鍵查證結果：本案所有權人並未持有巷道（375）任何持分</h3>
 <div class="callout warn"><b>經逐一比對所有權人資料，確認如下：</b>
-<table style="margin-top:10px"><thead><tr><th>對象</th><th>姓氏</th><th>戶籍縣市</th><th class="n">375 持分</th></tr></thead><tbody>
+<div class="tw"><table style="margin-top:10px"><thead><tr><th>對象</th><th>姓氏</th><th>戶籍縣市</th><th class="n">375 持分</th></tr></thead><tbody>
 <tr><td>375 登記次序 0001</td><td>陳姓</td><td>臺中市（大肚區）</td><td class="n">1/2</td></tr>
 <tr><td>375 登記次序 0009</td><td>陳姓</td><td>臺北市</td><td class="n">1/4</td></tr>
 <tr><td>375 其餘 4 位共有人</td><td><b>非陳姓</b></td><td class="note">—</td><td class="n">合計 1/4</td></tr>
 <tr class="self"><td><b>本案 367・368 所有權人</b></td><td>陳姓</td><td>臺中市（北區）</td><td class="n b">無持分</td></tr>
 <tr class="self"><td><b>本案 369 所有權人</b></td><td>陳姓</td><td>臺中市（西屯區）</td><td class="n b">無持分</td></tr>
-</tbody></table>
+</tbody></table></div>
 已調閱之 2 位雖同為陳姓，但<b>統一編號與戶籍地均與本案所有權人不同，確非同一人</b>；
 其餘 4 位共有人經查非陳姓。<b>結論：本案三筆土地的所有權人，對門前巷道不具任何持分。</b></div>
 
@@ -414,14 +418,14 @@ __DIAGRAM__
 <div class="callout"><b>「私設巷道指定建築線要所有權人同意」這個認知<u>只對了一半</u>。</b>
 依<b>臺中市建築管理自治條例第 19 條</b>，現有巷道之認定共有六款，
 <b>其中只有第 6 款需要土地所有權人出具同意書，第 1 至 5 款均不需要</b>：</p>
-<table style="margin-top:10px"><thead><tr><th class="c">款次</th><th>認定事由</th><th class="c">需同意書</th><th>本案適用性</th></tr></thead><tbody>
+<div class="tw"><table style="margin-top:10px"><thead><tr><th class="c">款次</th><th>認定事由</th><th class="c">需同意書</th><th>本案適用性</th></tr></thead><tbody>
 <tr class="hl"><td class="c"><b>1</b></td><td>經道路主管機關認定屬<b>既成道路</b>者</td><td class="c b">否</td><td class="note"><b>有機會</b> — 開闢逾 40 年、已達公用地役關係要件</td></tr>
 <tr class="hl"><td class="c"><b>2</b></td><td>經政府部門認定為已興闢、<b>已納入維護或管理</b>之公眾通行市區道路者</td><td class="c b">否</td><td class="note"><b>有機會</b> — 已鋪柏油、劃標線、設排水溝、編訂門牌</td></tr>
 <tr><td class="c">3</td><td>私人自行闢設之通路，申請人無法舉證時，<b>製作路網圖公告 30 日無人異議</b>者</td><td class="c b">否</td><td class="note">備援路徑 — 但須賭共有人不提異議</td></tr>
 <tr class="hl"><td class="c"><b>4</b></td><td><b>曾指定建築線且已核准建築完成</b>之巷道、備案道路者</td><td class="c b">否</td><td class="note"><b>最可能 — 見下方說明</b></td></tr>
 <tr><td class="c">5</td><td>農地重劃道路現況為道路且供公眾通行者</td><td class="c b">否</td><td class="note">不適用</td></tr>
 <tr class="na"><td class="c">6</td><td>土地重劃、區段徵收闢建之道路，<b>或土地所有權人出具經公證之供公眾通行同意書</b>、捐贈土地者</td><td class="c b" style="color:#C0533A">是</td><td class="note"><b>這才是您擔心的情形</b> — 本案應無須走此款</td></tr>
-</tbody></table></div>
+</tbody></table></div></div>
 
 <div class="callout ok"><b>✓ 本案最強的論點在第 4 款：兩側房屋已合法建築完成。</b>
 福利路 117 巷、118 巷兩側建物林立，實價登錄可查得多筆房地交易，
@@ -433,20 +437,20 @@ __DIAGRAM__
 
 <div class="callout ok"><b>✓ 第二道防線：既成道路之公用地役關係（司法院釋字第 400 號）。</b>
 依該號解釋，既成道路成立公用地役關係需具備三要件，本案逐項檢視：
-<table style="margin-top:10px"><thead><tr><th>要件</th><th>本案情形</th><th class="c">符合</th></tr></thead><tbody>
+<div class="tw"><table style="margin-top:10px"><thead><tr><th>要件</th><th>本案情形</th><th class="c">符合</th></tr></thead><tbody>
 <tr><td>為<b>不特定公眾通行所必要</b>，非僅圖便利或省時</td><td class="note">該巷為 117 巷各戶對外之<b>唯一通路</b>，無替代路徑</td><td class="c b">✓</td></tr>
 <tr><td>公眾通行之初，<b>土地所有權人未加阻止</b></td><td class="note">自民國 68 年分割留設後即供通行，<b>逾 40 年未見阻止</b></td><td class="c b">✓</td></tr>
 <tr><td><b>年代久遠未曾中斷</b>，一般人已無從記憶其起始</td><td class="note">開闢逾 40 年，兩側房屋最早為民國 69 年即已存在</td><td class="c b">✓</td></tr>
-</tbody></table>
+</tbody></table></div>
 <b>三要件均具備。</b>一旦成立公用地役關係，土地所有權人<b>已無從自由使用收益、亦不得阻止通行</b>，
 此時循第 1 款「既成道路」認定，同樣不需同意書。</div>
 
 <h3>風險情境與價值影響</h3>
-<table><thead><tr><th>情境</th><th>認定結果</th><th class="c">研判機率</th><th class="n">對價值影響</th></tr></thead><tbody>
+<div class="tw"><table><thead><tr><th>情境</th><th>認定結果</th><th class="c">研判機率</th><th class="n">對價值影響</th></tr></thead><tbody>
 <tr class="hl"><td><b>A（最可能）</b></td><td>循第 4 款或第 1、2 款認定為現有巷道，<b>免同意書</b>；現況寬度獲准維持</td><td class="c b">高</td><td class="n b">無影響<br>維持 25–29 萬/坪</td></tr>
 <tr class="hl"><td><b>B（次可能）</b></td><td>認定為現有巷道但<b>依第 20 條須退讓至 6 m</b></td><td class="c b">中</td><td class="n b">－4.2 ~ 8.5 坪<br>約 113–230 萬</td></tr>
 <tr class="na"><td><b>C（最壞）</b></td><td>僅能循第 6 款，<b>須 6 位共有人出具經公證之同意書</b>而無法取得 → 不能指定建築線</td><td class="c b">低</td><td class="n b" style="color:#C0533A">重大減損<br>詳見下方</td></tr>
-</tbody></table>
+</tbody></table></div>
 <div class="callout warn"><b>關於情境 C 的誠實說明：</b>
 若真的落入此情境，土地將<b>無法申請建造執照</b>，價值不再以建地計算，
 僅能以空地、停車場或農業使用評價，<b>市場價值可能僅剩建地價的三至五成</b>。
@@ -500,8 +504,8 @@ __DIAGRAM__
 <p style="font-size:14px;color:#666;margin:0 0 4px">資料來源：內政部實價登錄，大肚區「土地」類交易。單價＝總價 ÷ 土地坪數（自算，不採公告單價）。
 <b>已剔除 25 坪以下之畸零小地號</b>（該類多為補足或畸零地交易，單價失真、不具比較性）；
 各案地號經內政部地籍圖資系統逐筆定位，<b>依與本案之直線距離由近而遠排序</b>，綠底為主要比較案。</p>
-<table><thead><tr><th>成交</th><th>地段地號</th><th class="n">土地坪</th><th class="n">總價(萬)</th><th class="n">單價(萬/坪)</th><th class="n">直線距離</th><th class="c">現況</th><th>備註</th></tr></thead>
-<tbody>__LAND__</tbody></table>
+<div class="tw"><table><thead><tr><th>成交</th><th>地段地號</th><th class="n">土地坪</th><th class="n">總價(萬)</th><th class="n">單價(萬/坪)</th><th class="n">直線距離</th><th class="c">現況</th><th>備註</th></tr></thead>
+<tbody>__LAND__</tbody></table></div>
 
 <div class="callout"><b>比較案判讀（依距離）：</b>
 <ul style="margin-top:6px">
@@ -523,13 +527,13 @@ __DIAGRAM__
 自治段 376 距本案僅 48 公尺、同屬自治段，<b>且據了解該案亦為同一方出售</b>。
 屋主極可能以「我旁邊那塊賣 30.92 萬，這塊也要這個價」為定錨。
 但兩案在三個面向上存在實質落差，<b>直接套用會導致開價過高、案件滯銷</b>：</div>
-<table><thead><tr><th>比較項目</th><th>自治段 376</th><th>本案 367・368・369</th><th>對單價的影響</th></tr></thead><tbody>
+<div class="tw"><table><thead><tr><th>比較項目</th><th>自治段 376</th><th>本案 367・368・369</th><th>對單價的影響</th></tr></thead><tbody>
 <tr class="hl"><td><b>臨路條件</b></td><td>依地籍圖判讀<b>臨南側較寬計畫道路</b>，路權明確</td><td>臨 <b>5.18 m 私設巷道</b>（自治段 375，6 人共有），<b>且可能需退讓至 6 m</b></td><td class="b">▼ 顯著不利</td></tr>
 <tr class="hl"><td><b>成交時點</b></td><td>113 年 7 月</td><td>評估基準 115 年 9 月（<b>相隔 2 年 2 個月</b>）</td><td class="b">▼ 不利</td></tr>
 <tr><td><b>基地規模</b></td><td>238.1 坪，總價 7,359 萬</td><td>123.5 坪，總價約 3,300 萬</td><td>△ 總價門檻低，<b>對本案有利</b></td></tr>
 <tr><td><b>基地形狀</b></td><td>大面積完整街廓</td><td>面寬 34 m × 深 11.9 m，<b>深度偏淺</b></td><td>◯ 可切 4 戶，規劃效率佳但戶型受限</td></tr>
 <tr><td><b>交易性質</b></td><td>含公共設施保留地用地</td><td>純建地、無公設保留地</td><td>△ 本案<b>單純度較高</b></td></tr>
-</tbody></table>
+</tbody></table></div>
 <div class="callout"><b>建議對屋主的說法（三句話）：</b><br>
 ① <b>「376 那塊的路，跟這塊的路不一樣。」</b>376 臨的是有路權的計畫道路，本案臨的是 6 位共有人的私設巷道，
 而且依臺中市建管自治條例，巷長 114 公尺、寬度不足 6 公尺，很可能還要退讓 —— <b>這是買方一定會拿來砍價的點</b>。<br>
@@ -543,10 +547,10 @@ __DIAGRAM__
 <h3>比較案效力驗證：公告現值交叉比對</h3>
 <p>「同生活圈」不應只憑段名相鄰推論。經內政部地籍圖資網路便民服務系統（115 年度公告現值）逐筆查證，
 本案與主要比較案的<b>政府評定地價幾乎完全一致</b>：</p>
-<table><thead><tr><th>地號</th><th class="n">登記面積(㎡)</th><th class="n">登記面積(坪)</th><th class="n">公告現值(元/㎡)</th><th class="n">換算(萬/坪)</th><th>地政事務所</th></tr></thead><tbody>
+<div class="tw"><table><thead><tr><th>地號</th><th class="n">登記面積(㎡)</th><th class="n">登記面積(坪)</th><th class="n">公告現值(元/㎡)</th><th class="n">換算(萬/坪)</th><th>地政事務所</th></tr></thead><tbody>
 <tr class="hl"><td><b>自治段 367（本案）</b></td><td class="n">132.57</td><td class="n">40.1</td><td class="n">20,600</td><td class="n b">6.81</td><td>龍井</td></tr>
 <tr class="hl"><td><b>福利段 316（比較案）</b></td><td class="n">101.94</td><td class="n">30.8</td><td class="n">20,700</td><td class="n b">6.84</td><td>龍井</td></tr>
-</tbody></table>
+</tbody></table></div>
 <div class="callout ok"><b>✓ 兩者公告現值差距僅 0.5%</b>，代表政府對這兩塊地的區位條件評定為<b>同一價格帶</b>。
 這是比「段名相鄰」更客觀的佐證 —— <b>福利段 316 作為主要比較案的效力成立</b>，其 28.05 萬/坪的成交價可直接對標，無須再做區位調整。
 （附帶驗證：本案登記面積 132.57 ㎡ 與屋主提供之地籍資料完全相符。）</div>
@@ -562,8 +566,8 @@ __SITES__
 
 <h2>八、交叉驗證一：福利路巷內透天扣建物殘值反推地價</h2>
 <p style="font-size:14px;color:#666;margin:0 0 4px">本次改採<b>同一生活圈、同為巷內</b>的透天成交反推，比初版採用的自治路店住段更貼近。建物殘值依屋齡估：10 年內 7 萬/坪、30 年 4 萬/坪、45 年以上 2.5 萬/坪。</p>
-<table><thead><tr><th>成交</th><th>門牌</th><th class="n">建成年</th><th class="n">地坪</th><th class="n">建坪</th><th class="n">總價(萬)</th><th class="n">含建物<br>地坪單價</th><th class="n">建物殘值<br>(萬/坪)</th><th class="n">反推地價<br>(萬/坪)</th></tr></thead>
-<tbody>__HOUSE__</tbody></table>
+<div class="tw"><table><thead><tr><th>成交</th><th>門牌</th><th class="n">建成年</th><th class="n">地坪</th><th class="n">建坪</th><th class="n">總價(萬)</th><th class="n">含建物<br>地坪單價</th><th class="n">建物殘值<br>(萬/坪)</th><th class="n">反推地價<br>(萬/坪)</th></tr></thead>
+<tbody>__HOUSE__</tbody></table></div>
 <div class="callout">三筆 <b>103 年新透天（綠底）反推地價高度收斂在 33.3 – 36.8 萬/坪</b>，一致性極高，可信度佳。
 老屋案（69 – 80 年）反推值偏高（44.8 – 53.7 萬），係因建物殘值難以精確認列，且福利路 127 號臨主要道路，僅供參考。
 以 33 – 37 萬為「<b>單戶 30 坪級距、已開發完成</b>」的地價水準，本案為<b>整批素地</b>，需扣除開發風險與時間成本，
@@ -572,7 +576,7 @@ __SITES__
 <h2>九、交叉驗證二：開發效益反推（買方付得起多少）</h2>
 <div class="card">
 <h3>情境：沿巷切分 4 戶街屋型透天（每戶地約 30.9 坪、建約 62 坪）</h3>
-<table><thead><tr><th>項目</th><th class="n">保守</th><th class="n">樂觀</th><th>依據</th></tr></thead><tbody>
+<div class="tw"><table><thead><tr><th>項目</th><th class="n">保守</th><th class="n">樂觀</th><th>依據</th></tr></thead><tbody>
 <tr><td>單戶售價</td><td class="n">1,700 萬</td><td class="n">1,900 萬</td><td class="note">同巷 103 年透天實績：福利路 152 巷 9 號 1,420 萬（30.7 地/55.8 建）、150 巷 8 號 1,810 萬（36.8/65.6）；新成屋加計屋齡差</td></tr>
 <tr><td>總銷</td><td class="n">6,800 萬</td><td class="n">7,600 萬</td><td class="note">4 戶</td></tr>
 <tr><td>營建成本</td><td class="n">－3,224 萬</td><td class="n">－3,224 萬</td><td class="note">62 坪 × 13 萬/坪 × 4 戶（RC 四層含雜項、基礎）</td></tr>
@@ -580,7 +584,7 @@ __SITES__
 <tr><td>管銷・稅費・利潤</td><td class="n">－1,020 萬</td><td class="n">－1,140 萬</td><td class="note">約總銷 15%</td></tr>
 <tr class="hl"><td><b>土地可負擔總額</b></td><td class="n b">2,506 萬</td><td class="n b">3,206 萬</td><td class="note">＝總銷 － 營建 － 整地 － 管銷利潤</td></tr>
 <tr class="hl"><td><b>換算土地單價</b></td><td class="n b">20.3 萬/坪</td><td class="n b">26.0 萬/坪</td><td class="note">÷ 123.5 坪</td></tr>
-</tbody></table>
+</tbody></table></div>
 <p style="font-size:14px;margin:10px 0 0">小型建商的出價天花板約在 <b>26 萬/坪</b>；<b>自建自用買方</b>（不計開發利潤與管銷）可再往上約 3 – 4 萬，
 到 <b>29 – 30 萬/坪</b>仍屬合理。三法交會處即為 <b>25 – 29 萬/坪</b> 的合理成交帶。</p>
 </div>
@@ -635,7 +639,7 @@ __SITES__
 <footer><div class="inner">
 <span>瑞禾開發｜建築、房產整合團隊</span>
 <span>張現傑</span>
-<span>製表日期：2026.09.22（第 11 版・建築線風險評估）</span>
+<span>製表日期：2026.09.22（第 12 版）</span>
 </div></footer>
 </body></html>"""
 
