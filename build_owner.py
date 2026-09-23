@@ -124,7 +124,6 @@ HTML = """<!DOCTYPE html>
 <div class="row"><span class="k">面積</span><span class="v">123.5 坪（三筆合計）</span></div>
 <div class="row"><span class="k">用途</span><span class="v">住宅區・可建築</span></div>
 <div class="row"><span class="k">現況</span><span class="v">空地，無建物</span></div>
-<div class="row"><span class="k">可蓋</span><span class="v">約 4 戶透天</span></div>
 </div>
 </div>
 
