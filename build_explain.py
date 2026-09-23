@@ -44,6 +44,21 @@ b{color:var(--f);font-weight:700}
 .grid > div:last-child{border-right:0}
 .grid .n{font-size:24px;font-weight:700;color:var(--f);font-family:"Noto Sans TC",sans-serif}
 .grid .d{font-size:14.5px;color:var(--lt);font-family:"Noto Sans TC",sans-serif;margin-top:3px}
+
+.ptab{margin:22px 0;border:2px solid var(--bd);border-radius:7px;overflow:hidden}
+.ptab table{width:100%;border-collapse:collapse;font-family:"Noto Sans TC",sans-serif}
+.ptab th{background:var(--f);color:#fff;font-size:15px;font-weight:500;padding:11px 10px;text-align:center}
+.ptab td{padding:12px 10px;text-align:center;border-bottom:1px solid #EEE;font-size:17px;line-height:1.5}
+.ptab tr:last-child td{border-bottom:0}
+.ptab tr.in{background:#EDF3E8}
+.ptab tr.in td{font-weight:500}
+.ptab tr.ask{background:var(--f)}
+.ptab tr.ask td,.ptab tr.ask b{color:#fff}
+.ptab small{display:block;font-size:12.5px;color:var(--lt);font-weight:400;margin-top:1px}
+.ptab tr.ask small{color:#B9CDB9}
+.ptab b{color:var(--f);font-weight:700}
+.ptab-n{font-size:15px;color:var(--lt);margin:-14px 0 22px;font-family:"Noto Sans TC",sans-serif;line-height:1.75}
+@media(max-width:420px){.ptab td{font-size:15.5px;padding:10px 5px}.ptab th{font-size:13.5px;padding:9px 5px}}
 .data{font-family:"Noto Sans TC",sans-serif;font-size:16px;background:#FAFAF8;
  border:1px solid var(--bd);border-radius:5px;padding:4px 18px;margin:22px 0}
 .data .r{display:flex;justify-content:space-between;gap:14px;padding:12px 0;
@@ -119,6 +134,10 @@ __GA__
 <div><div class="n">2,720 萬</div><div class="d">建議底線（每坪 22 萬）</div></div>
 </div>
 </div>
+
+<h2>單價與總價對照</h2>
+<p>以土地 123.5 坪計算，每坪單價對應的總價與扣除土地增值稅後的實拿金額如下。綠色為建議的合理成交範圍。</p>
+<div class="ptab"><table><thead><tr><th>每坪</th><th>總價</th><th>扣稅後實拿</th></tr></thead><tbody><tr><td><b>22 萬</b><small>底線</small></td><td>2,717 萬</td><td><b>2,564 萬</b></td></tr><tr class="in"><td><b>25 萬</b></td><td>3,088 萬</td><td><b>2,935 萬</b></td></tr><tr class="in"><td><b>26 萬</b></td><td>3,211 萬</td><td><b>3,058 萬</b></td></tr><tr class="in"><td><b>27 萬</b></td><td>3,335 萬</td><td><b>3,182 萬</b></td></tr><tr class="in"><td><b>28 萬</b></td><td>3,458 萬</td><td><b>3,305 萬</b></td></tr><tr class="in"><td><b>29 萬</b></td><td>3,582 萬</td><td><b>3,429 萬</b></td></tr><tr><td><b>30 萬</b></td><td>3,705 萬</td><td><b>3,552 萬</b></td></tr><tr class="ask"><td><b>32 萬</b><small>開價</small></td><td>3,952 萬</td><td><b>3,799 萬</b></td></tr></tbody></table></div><p class="ptab-n">※ 實拿金額已扣除土地增值稅 152.9 萬，尚未扣除仲介服務費與代書費用。</p>
 
 <h2>這個價格是怎麼得出來的</h2>
 
