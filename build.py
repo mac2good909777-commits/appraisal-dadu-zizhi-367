@@ -278,7 +278,7 @@ __DIAGRAM__
 <h2>四、產權結構與稅負（謄本查證）</h2>
 <p style="font-size:14px;color:#666;margin:0 0 4px">依 115.09.23 調閱之土地電傳資料整理。
 基於個人資料保護，<b>僅列所有權人姓氏與戶籍所在縣市</b>，不揭露完整姓名、統一編號與詳細住址。</p>
-<table><thead><tr><th>地號</th><th class="n">登記面積(㎡)</th><th class="n">坪</th><th>所有權人</th><th>取得原因</th><th class="n">土增稅(一般)</th><th class="n">土增稅(自宅)</th></tr></thead><tbody>
+<table><thead><tr><th>地號</th><th class="n">登記面積(㎡)</th><th class="n">坪</th><th>所有權人</th><th>取得原因</th><th class="n">土增稅(一般)<br><span class="note" style="color:#dfe">適用</span></th><th class="n">土增稅(自宅)<br><span class="note" style="color:#dfe">本案不適用</span></th></tr></thead><tbody>
 <tr><td>自治段 367</td><td class="n">132.57</td><td class="n">40.10</td><td>陳姓（臺中市）· 單獨所有</td><td class="note">68 年買賣</td><td class="n">49.7 萬</td><td class="n">19.8 萬</td></tr>
 <tr><td>自治段 368</td><td class="n">135.56</td><td class="n">41.01</td><td>陳姓（臺中市）· 單獨所有<br><span class="note">與 367 為同一人</span></td><td class="note">68 年買賣</td><td class="n">50.8 萬</td><td class="n">20.2 萬</td></tr>
 <tr><td>自治段 369</td><td class="n">140.14</td><td class="n">42.39</td><td><b>陳姓（臺中市）· 單獨所有</b><br><span class="note">與 367、368 <b>非同一人</b></span></td><td class="note">97 年配偶贈與</td><td class="n">52.5 萬</td><td class="n">20.9 萬</td></tr>
@@ -316,9 +316,39 @@ __DIAGRAM__
 <b>這是本案目前最需要花錢釐清的一件事。</b>指定建築線規費僅新臺幣 500 元（每增一條道路加收 100 元），
 <b>建議立刻申請，用 500 元換一個確定答案</b> —— 結果會直接影響開價與買方信心。</div>
 
+<h3>⚠ 自用住宅優惠稅率：本案確定不適用</h3>
+<div class="callout warn"><b>結論先講：本案三筆均為素地、地上無建物，<u>無法適用</u>自用住宅優惠稅率，應以一般用地稅率計算，合計約 153 萬。</b>
+先前表格所列之「自宅稅率 60.9 萬」僅為謄本系統的制式估算欄位，<b>本案不具適用資格，不得列入屋主淨得計算</b>。</div>
+<p><b>法規依據：</b></p>
+<ul style="font-size:14px">
+<li><b>土地稅法第 9 條</b>：自用住宅用地，指土地所有權人或其配偶、直系親屬於該地<b>辦竣戶籍登記</b>，且無出租或供營業用之<b>住宅用地</b>。</li>
+<li><b>土地稅法施行細則</b>進一步明定：自用住宅用地，<b>以其土地上之建築改良物屬土地所有權人或其配偶、直系親屬所有者為限</b>。</li>
+<li>兩者合併解讀：<b>「有房屋」是前提，「設籍」是要件</b>。素地沒有建築改良物，自始不屬於「住宅用地」，
+更無從辦理戶籍登記 —— <b>本案三筆謄本均載明無地上物，故不符合要件</b>。</li>
+</ul>
+
+<h3>釐清：「數筆土地合併申報」能不能讓素地一起適用？</h3>
+<div class="callout"><b>不能。這是常見的誤解，說明如下：</b>
+<ul style="margin-top:6px">
+<li><b>確實有「合併視為一次」的規定</b>：同一土地所有權人出售<b>數筆自用住宅用地</b>，
+若訂約日期相同、且於同一天申報移轉現值，可<b>視為一次出售</b>，
+合計面積未超過都市土地 3 公畝（約 90.75 坪）部分，適用 10% 優惠稅率。</li>
+<li><b>但這條規定解決的是「次數」問題，不是「資格」問題。</b>
+其目的在於：避免所有權人一次賣掉房屋坐落的數筆土地時，被認定用掉好幾次「一生一次」的額度。
+<b>前提是「這數筆土地各自都要是自用住宅用地」</b>。</li>
+<li><b>因此，並非「其中一筆有設籍，其餘素地就能搭便車」。</b>
+每一筆土地都必須各自符合「地上有自用住宅建物 ＋ 辦竣戶籍登記」的要件，
+無建物的素地不會因為與有建物的土地同時申報而取得資格。</li>
+<li><b>唯一可能的例外情形</b>是：房屋<b>跨坐落於數筆地號</b>，或相鄰地號確屬該房屋之法定空地／基地範圍，
+此時該數筆可整體認定為房屋基地。<b>但本案三筆皆無任何地上物，不存在此種情形。</b></li>
+</ul></div>
+<p style="font-size:14px;color:#555"><b>對屋主的實務提醒：</b>若屋主名下另有自用住宅，
+其「一生一次」或「一生一屋」的資格<b>並不會因本案出售而被使用掉</b>（因本案本來就按一般稅率課徵），
+該額度仍可保留給日後出售真正的自用住宅時使用 —— 這點可主動告知，屬於正面訊息。</p>
+
 <h3>屋主實拿試算（扣土地增值稅）</h3>
 <p style="font-size:14px;color:#666;margin:0 0 4px">三筆前次移轉現值均為民國 68 年 11 月，持有逾 46 年。
-下表以<b>一般用地稅率</b>（較保守）試算；若符合自用住宅用地要件稅額可降至 60.9 萬，惟素地通常難以適用，故以一般稅率為準。</p>
+下表<b>以一般用地稅率計算</b>（依上述，本案不適用自用住宅優惠稅率）。</p>
 <table><thead><tr><th class="n">成交單價</th><th class="n">成交總價</th><th class="n">土增稅(一般)</th><th class="n">屋主淨得(未計服務費)</th></tr></thead><tbody>
 <tr><td class="n">22 萬/坪（底線）</td><td class="n">2,717 萬</td><td class="n">－153 萬</td><td class="n b">2,564 萬</td></tr>
 <tr class="hl"><td class="n">25 萬/坪</td><td class="n">3,088 萬</td><td class="n">－153 萬</td><td class="n b">2,935 萬</td></tr>
@@ -333,7 +363,7 @@ __DIAGRAM__
 
 <h3>稅額驗證：三方獨立核對</h3>
 <p>土地增值稅為本次評估中<b>唯一涉及法定稅額的數字</b>，已用三種獨立來源交叉核對，結果完全一致：</p>
-<table><thead><tr><th>驗證來源</th><th class="n">367 一般稅率</th><th class="n">367 自宅稅率</th><th>說明</th></tr></thead><tbody>
+<table><thead><tr><th>驗證來源</th><th class="n">367 一般稅率<br><span class="note" style="color:#dfe">本案適用</span></th><th class="n">367 自宅稅率<br><span class="note" style="color:#dfe">僅供對照</span></th><th>說明</th></tr></thead><tbody>
 <tr><td>① 謄本電傳系統估算</td><td class="n">496,534</td><td class="n">197,621</td><td class="note">115.09.23 調閱之原始估算值</td></tr>
 <tr><td>② 本報告獨立試算</td><td class="n">496,534</td><td class="n">197,621</td><td class="note">依土地稅法第 33 條公式自行計算</td></tr>
 <tr class="hl"><td><b>③ 財政部稅務入口網官方試算</b></td><td class="n b">496,534</td><td class="n b">197,621</td><td class="note">etax.nat.gov.tw 線上試算工具實際輸入驗證</td></tr>
@@ -358,21 +388,52 @@ __DIAGRAM__
 ③ 該持分同樣需課徵土地增值稅，<b>不計入會低估屋主稅負、誤導淨得</b>。<br>
 <b>目前資料缺口：</b>375 共 6 位所有權人，已調閱 2 位（持分 1/2、1/4），
 <b>其餘 1/4 由 4 人持有，本案屋主之持分比例尚未查明</b>。建議調閱完整謄本或請屋主提供權狀確認。</div>
-<table><thead><tr><th>持分情境</th><th class="n">持分坪數</th><th class="n">土增稅(一般)</th><th class="n">計價：建地價 20%</th><th class="n">計價：建地價 30%</th></tr></thead><tbody>
-<tr><td>1/16</td><td class="n">11.23</td><td class="n">13.9 萬</td><td class="n">61 萬</td><td class="n">91 萬</td></tr>
-<tr><td>1/12</td><td class="n">14.98</td><td class="n">18.5 萬</td><td class="n">81 萬</td><td class="n">121 萬</td></tr>
-<tr><td>1/8</td><td class="n">22.46</td><td class="n">27.8 萬</td><td class="n">121 萬</td><td class="n">182 萬</td></tr>
-<tr><td>1/6</td><td class="n">29.95</td><td class="n">37.1 萬</td><td class="n">162 萬</td><td class="n">243 萬</td></tr>
-<tr><td>1/4</td><td class="n">44.93</td><td class="n">55.6 萬</td><td class="n">243 萬</td><td class="n">364 萬</td></tr>
+<h3>計價原則：總面積含道路持分，但單價必須分段</h3>
+<div class="callout"><b>這是本案定價最容易談僵的地方，先把原則講清楚：</b>
+<ul style="margin-top:6px">
+<li><b>總面積必須包含私設道路持分。</b>地主處分土地時，認知上是「我這塊地總共幾坪」，
+不會把巷道持分切開看待，銷售文件的<b>總坪數也應含巷道持分</b>，這才是完整的交易標的。</li>
+<li><b>但單價必須分段計算。</b>道路持分因供公眾通行、不可建築，
+<b>市場計價遠低於建地</b>，一般僅為建地單價的 <b>20% – 30%</b>。</li>
+<li><b>兩者的落差就是談判的核心。</b>若直接用「總坪數 × 建地單價」，會高估總價；
+但若只講建地坪數、不提巷道持分，又低估了交易內容。<b>正確作法是：對外呈現總坪數，內部分段計價。</b></li>
+</ul></div>
+<p style="font-size:14px;color:#666;margin:0 0 4px">下表以建地 123.50 坪 × 27 萬/坪（＝3,334 萬）為基礎，道路持分以建地單價 25% 計價：</p>
+<table><thead><tr><th>道路持分</th><th class="n">道路坪數</th><th class="n">總坪數<br>(對外呈現)</th><th class="n">道路計價<br>(建地25%)</th><th class="n">合計總價</th><th class="n">表面單價<br>(總價÷總坪)</th><th class="n">土增稅<br>(道路部分)</th></tr></thead><tbody>
+<tr><td>1/16</td><td class="n">11.23</td><td class="n">134.73</td><td class="n">76 萬</td><td class="n b">3,410 萬</td><td class="n">25.31</td><td class="n">13.9 萬</td></tr>
+<tr><td>1/12</td><td class="n">14.98</td><td class="n">138.48</td><td class="n">101 萬</td><td class="n b">3,436 萬</td><td class="n">24.81</td><td class="n">18.5 萬</td></tr>
+<tr class="hl"><td>1/8</td><td class="n">22.46</td><td class="n">145.96</td><td class="n">152 萬</td><td class="n b">3,486 萬</td><td class="n">23.88</td><td class="n">27.8 萬</td></tr>
+<tr class="hl"><td>1/6</td><td class="n">29.95</td><td class="n">153.45</td><td class="n">202 萬</td><td class="n b">3,537 萬</td><td class="n">23.05</td><td class="n">37.1 萬</td></tr>
+<tr class="hl"><td>1/4</td><td class="n">44.93</td><td class="n">168.43</td><td class="n">303 萬</td><td class="n b">3,638 萬</td><td class="n">21.60</td><td class="n">55.6 萬</td></tr>
+<tr><td>1/2</td><td class="n">89.86</td><td class="n">213.36</td><td class="n">607 萬</td><td class="n b">3,941 萬</td><td class="n">18.47</td><td class="n">111.3 萬</td></tr>
+<tr><td><span class="note">全部持有（上限參考）</span></td><td class="n">179.71</td><td class="n">303.21</td><td class="n">1,213 萬</td><td class="n b">4,548 萬</td><td class="n">15.00</td><td class="n">222.5 萬</td></tr>
 </tbody></table>
-<p style="font-size:14px;color:#555">
-<b>計價方式說明：</b>現況供公眾通行之私設通路，市場慣例<b>不以建地行情計價</b>，
-常見作法為「隨主地一併移轉、不另計價」，或以建地單價的 <b>20% – 30%</b> 象徵性計入。
-上表以本案建地 27 萬/坪為基準換算。<b>土增稅欄位則不論計價與否都必須繳納</b>
-（假設其取得時點與主地相同，同樣適用 1.24 萬/坪）。<br>
-<b>建議策略：</b>將 375 持分<b>以「附贈」名義隨主地移轉、不另外加價</b>，
-但在銷售文件中<b>明確標示「含巷道持分」作為賣點</b> —— 既能提高買方信心，
-又避免因加價導致總價超出買方心理門檻。屋主端則需理解：<b>附贈不等於免稅，該持分的土增稅仍須負擔</b>。</p>
+
+<div class="callout warn"><b>⚠ 必須讓屋主理解的認知落差。</b>
+若屋主以「總坪數 × 建地單價」計算期待值，會與市場合理價產生明顯差距：
+<table style="margin-top:10px"><thead><tr><th>道路持分</th><th class="n">屋主期待<br>(總坪 × 27 萬)</th><th class="n">市場合理<br>(分段計價)</th><th class="n">認知落差</th></tr></thead><tbody>
+<tr><td>1/8（22.46 坪）</td><td class="n">3,941 萬</td><td class="n">3,486 萬</td><td class="n b">－455 萬</td></tr>
+<tr class="hl"><td>1/4（44.93 坪）</td><td class="n">4,548 萬</td><td class="n">3,638 萬</td><td class="n b">－910 萬</td></tr>
+<tr><td>1/2（89.86 坪）</td><td class="n">5,761 萬</td><td class="n">3,941 萬</td><td class="n b">－1,820 萬</td></tr>
+</tbody></table>
+<b>持分越多，落差越大。</b>原因很直觀：巷道是「不能蓋房子的地」，買方不會用建地的錢去買它。
+<b>簽委託前若沒把這件事說清楚，後續必然在議價階段爆發爭執。</b></div>
+
+<div class="callout ok"><b>✓ 建議作法：對外「總坪數」，對內「分段價」。</b>
+<ul style="margin-top:6px">
+<li><b>銷售文件寫法：</b>「土地總面積 ○○○ 坪（<b>含建地 123.50 坪、巷道持分 ○○ 坪</b>）」——
+資訊完整揭露，買方看得懂，也不會事後覺得被誤導。</li>
+<li><b>報價寫法：</b>以<b>總價</b>報價，不主打單價。避免買方拿「表面單價」（如 21.6 萬）去跟純建地案比，
+反而顯得便宜卻說不清楚；也避免屋主拿建地單價去乘總坪數。</li>
+<li><b>巷道持分的價值在於「解決通行疑慮」</b>，而非坪數本身。
+文宣應強調「<b>含巷道持分，通行權完整</b>」，這對買方的心理價值遠高於那幾十萬的帳面計價。</li>
+<li><b>土增稅照繳。</b>不論巷道持分是計價出售或隨主地附贈，只要辦理移轉就會課徵，
+以每坪 1.24 萬計（假設取得時點與主地相同），持分越大稅負越高，須計入屋主淨得。</li>
+</ul></div>
+
+<p style="font-size:14px;color:#555"><b>資料缺口提醒：</b>上表為情境試算。
+375 地號共 6 位所有權人，已調閱 2 位（持分 1/2、1/4），<b>其餘 1/4 由 4 人持有，本案屋主之實際持分比例尚未查明</b>。
+<b>此數字一旦確認，總坪數、總價與土增稅即可定案</b>，建議優先取得。</p>
 
 <h2>五、估價結論</h2>
 <div class="concl">
@@ -510,6 +571,7 @@ __SITES__
 <li>現況照片取自 Google 街景服務（拍攝日期 2024.10 及 2026.01），巷道寬度為影像目視估計，<b>正式數值應以都市計畫圖及建築線指定為準</b>。</li>
 <li>公告現值、面積、分區資料引自地籍查詢系統（115 年公告現值及地價），實際以地政事務所謄本為準。</li>
 <li>開發效益試算之營建單價、售價與利潤率為經驗值假設，實際因設計、時點與融資條件而異。</li>
+<li>自用住宅優惠稅率之適用，依土地稅法第 9 條、第 34 條及同法施行細則規定判斷；本案三筆均無地上建物，不符自用住宅用地要件，故一律按一般用地稅率計算。</li>
 <li>土地增值稅：依土地稅法第 33 條公式計算，並經財政部稅務入口網（etax.nat.gov.tw）線上試算工具與謄本系統估算值三方核對一致；僅供概算，實際以稽徵機關核定發單為準。</li>
 <li>建築線相關規定引自臺中市建築管理自治條例第 19、20 條；退讓面積為依條文推算之預估值，實際應以都發局指定建築線結果為準。</li>
 <li>本報告為<b>行情研判與委託前參考</b>，非不動產估價師法所定之估價報告書，不作為課稅、融資或訴訟依據。</li>
@@ -521,7 +583,7 @@ __SITES__
 <footer><div class="inner">
 <span>瑞禾開發｜建築、房產整合團隊</span>
 <span>張現傑</span>
-<span>製表日期：2026.09.22（第 7 版・含稅額驗證與建築線分析）</span>
+<span>製表日期：2026.09.22（第 8 版・含自用稅率釐清）</span>
 </div></footer>
 </body></html>"""
 
