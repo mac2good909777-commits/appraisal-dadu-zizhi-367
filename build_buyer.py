@@ -6,6 +6,66 @@
 from _assets import LOGO, IMG
 from _sv import SV1, SV2, SV3
 
+# ── 區域行情（與 build.py 同一組資料，買方版保留原始成交，不含本案估值推導）──
+# (成交, 地段地號, 土地坪, 總價萬, 單價, 直線距離m, 緯度, 經度, 備註, 權重)
+rows_land = [
+ ("—","自治段 367・368・369（本案）","123.5","—","—",0,24.153926,120.545323,"本案標的","self"),
+ ("113.07","自治段 376","238.1","7,359","30.92",48,24.153656,120.545696,"同街廓、大面積整批；含公設保留地，臨南側較寬計畫道路","key"),
+ ("113.08","福利段 316","34.3","961","28.05",181,24.152972,120.543881,"同生活圈巷內素地，常規交易；公告現值與本案僅差 0.5%","key"),
+ ("113.03","自治段 189-2","29.5","673","22.79",364,24.156280,120.547813,"政府標讓售之小坪數畸零地，性質特殊，屬本區地板","sub"),
+ ("113.03","大東段 754","29.7","1,130","38.10",909,24.145909,120.547052,"含未登記建物、臨街精華地，性質與素地不同，屬上緣","sub"),
+ ("114.03","福山段 1249","55.8","1,605","28.77",3981,24.123249,120.565544,"距本案近 4 公里，另一生活圈（近王田、追分），僅供對照","far"),
+ ("115.04","福利段 741","33.5","1,300","38.75",None,None,None,"親友交易；現行地籍查無此號，推測成交後已分割合併","na"),
+ ("113.03","福德段 837","51.2","2,000","39.04",None,None,None,"含未登記建物；現行地籍查無此號，推測成交後已分割合併","na"),
+]
+
+# (成交, 門牌, 建成年, 地坪, 建坪, 總價萬, 含建物地坪單價, 權重)
+rows_house = [
+ ("113.03","福利路 150 巷 8 號","103","36.8","65.6","1,810","49.23","key"),
+ ("114.06","福利路 152 巷 9 號","103","30.7","55.8","1,420","46.26","key"),
+ ("114.01","福利路 152 巷 1 號","103","66.9","110.4","3,000","44.82","key"),
+ ("115.02","自治路 36 巷 19 號","104","38.3","67.2","1,880","49.15","key"),
+ ("113.06","福利路 118 巷 10 號","080","28.3","65.9","1,500","52.99","sub"),
+ ("113.11","福利路 127 號","069","26.2","36.8","1,500","57.21","sub"),
+]
+
+
+def tr_land(r):
+    d, seg, p, total, unit, dist, lat, lon, note, kind = r
+    cls = {'key': ' class="hl"', 'self': ' class="self"', 'na': ' class="na"'}.get(kind, '')
+    if kind == 'self':
+        dtxt = '<b>標的</b>'
+    elif dist is None:
+        dtxt = '<span class="muted">無法定位</span>'
+    elif dist >= 1000:
+        dtxt = '<b>%.1f km</b>' % (dist / 1000.0)
+    else:
+        dtxt = '<b>%d m</b>' % dist
+    if lat is None:
+        sv = '<span class="muted">—</span>'
+    else:
+        sv = ('<a class="sv-link" target="_blank" rel="noopener" '
+              'href="https://www.google.com/maps?q&amp;layer=c&amp;cbll=%.6f,%.6f">街景</a>'
+              ' · <a class="sv-link" target="_blank" rel="noopener" '
+              'href="https://www.google.com/maps/search/?api=1&amp;query=%.6f,%.6f">地圖</a>'
+              % (lat, lon, lat, lon))
+    return ('<tr%s><td>%s</td><td>%s</td><td class="n">%s</td><td class="n">%s</td>'
+            '<td class="n b">%s</td><td class="n">%s</td><td class="c">%s</td>'
+            '<td class="note">%s</td></tr>'
+            % (cls, d, seg, p, total, unit, dtxt, sv, note))
+
+
+def tr_house(r):
+    d, addr, yr, lp, bp, total, gross, kind = r
+    cls = ' class="hl"' if kind == "key" else ''
+    return ('<tr%s><td>%s</td><td>%s</td><td class="n">%s</td><td class="n">%s</td>'
+            '<td class="n">%s</td><td class="n">%s</td><td class="n b">%s</td></tr>'
+            % (cls, d, addr, yr, lp, bp, total, gross))
+
+
+LAND = ''.join(tr_land(r) for r in rows_land)
+HOUSE = ''.join(tr_house(r) for r in rows_house)
+
 CSS = """
 :root{--g:#4B872F;--f:#2B5937;--gold:#C0A434;--cream:#F5F3EE;--tx:#333;--lt:#888;--bd:#E8E6E1;--dn:#C0533A;}
 *{box-sizing:border-box}
@@ -34,6 +94,15 @@ table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
 th{background:var(--f);color:#fff;padding:11px 12px;text-align:left;font-weight:500;white-space:nowrap}
 td{padding:10px 12px;border-bottom:1px solid var(--bd);vertical-align:top}
 tbody tr:nth-child(odd){background:#F8F8F5}
+tr.hl{background:#EEF4EA !important}
+tr.hl td{border-bottom:1px solid #D6E3CE}
+tr.self{background:#FFF8E1 !important}
+tr.self td{border-bottom:2px solid var(--gold);font-weight:600}
+tr.na td{color:#999}
+.muted{color:#aaa}
+.c{text-align:center;white-space:nowrap}
+.sv-link{color:var(--g);text-decoration:none;border-bottom:1px solid #C6DCB8;font-size:13px}
+.sv-link:hover{color:var(--f);border-bottom-color:var(--f)}
 .n{text-align:right;font-family:Inter,sans-serif;white-space:nowrap}
 .b{font-weight:700;color:var(--f)}
 .note{font-size:12.5px;color:#777;line-height:1.6}
@@ -71,6 +140,7 @@ footer .tel{font-family:Inter,sans-serif;font-size:22px;font-weight:700;color:va
 footer .cm{color:#AFC3AF;font-size:12.5px;margin-top:14px;line-height:1.8}
 .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0;position:relative}
 .tw table{margin:0;min-width:520px}
+.tw.wide table{min-width:800px}
 @media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}.two,.sv,.feat,.three{grid-template-columns:1fr}main{padding:22px 16px}header{padding:22px 16px}header .inner{flex-direction:column;align-items:flex-start;gap:14px}header h1{font-size:23px}body{font-size:16px}h2{font-size:20px}h3{font-size:16.5px}table{font-size:13.5px}th,td{padding:8px 9px}.callout{padding:14px 15px;font-size:14px}ul{margin-left:18px}.kpi .v{font-size:26px}footer{padding:24px 16px}.ask{padding:22px 18px}.ask .v{font-size:25px}}
 @media(max-width:760px){.tw::before{content:"← 表格可左右滚動 →";display:block;font-size:12px;color:#A09A90;text-align:right;margin-bottom:3px;letter-spacing:.5px}}
 @media(max-width:420px){.kpis{grid-template-columns:1fr}}
@@ -226,7 +296,52 @@ BODY = """<!DOCTYPE html>
 <div class="card"><h4>鄰地整合</h4><p>三筆相連成完整矩形，與鄰地合併可進一步擴大街廓深度與基地規模。</p></div>
 </div>
 
-<h2>六、價格與洽詢</h2>
+<h2>六、區域行情</h2>
+<p class="lead">以下為內政部實價登錄之臺中市大肚區「土地」類買賣成交（112 年 Q1 – 115 年 Q2）。
+各案地號經內政部地籍圖資網路便民服務系統逐筆定位，<b>依與本案之直線距離由近而遠排序</b>；
+土地單價一律以「總價 ÷ 土地坪數」自行計算，未採用實登揭露之建物單價欄位。
+已剔除 25 坪以下之畸零小地號（該類多為補足或畸零地交易，單價失真、不具比較性）。</p>
+
+<div class="tw wide"><table><thead><tr><th>成交</th><th>地段地號</th><th class="n">土地坪</th><th class="n">總價(萬)</th><th class="n">單價(萬/坪)</th><th class="n">直線距離</th><th class="c">現況</th><th>備註</th></tr></thead>
+<tbody>__LAND__</tbody></table></div>
+<p class="note" style="margin:-4px 0 0">※「現況」欄之街景與地圖連結可直接點開查看各比較案所在位置與臨路環境。</p>
+
+<div class="callout"><b>各案性質說明（依距離）：</b>
+<ul style="margin-top:6px">
+<li><b>自治段 376 — 48 公尺（30.92 萬/坪）</b>：距離最近、同段、238 坪大面積整批成交（113 年 7 月）。
+含公設保留地，<b>可建部分之實際單價高於表列數字</b>；臨路為南側較寬之計畫道路，路權明確，與本案臨 5.18 m 巷道之條件不同。</li>
+<li><b>福利段 316 — 181 公尺（28.05 萬/坪）</b>：步行 2 分鐘距離的巷內素地，常規交易，坪數 34.3 坪。
+<b>條件與本案最為接近的一筆</b>。</li>
+<li><b>自治段 189-2 — 364 公尺（22.79 萬/坪）</b>：政府標讓售之小坪數畸零地，性質特殊、單價偏低，屬<b>本區價格地板</b>。</li>
+<li><b>大東段 754 — 909 公尺（38.10 萬/坪）</b>：含未登記建物之臨街精華地，性質與素地不同，屬<b>本區價格上緣</b>。</li>
+<li><b>福山段 1249 — 3.98 公里（28.77 萬/坪）</b>：經定位後確認位於另一生活圈（近王田、追分一帶），區位條件不可直接類比，僅列為對照。</li>
+<li><b>福利段 741、福德段 837</b>：單價雖高（38.75／39.04 萬），但<b>現行地籍已查無此地號</b>，推測成交後即辦理分割或合併改建；
+加上前者為親友交易、後者含未登記建物，<b>均不具常規比較效力</b>，僅列出以求資料完整。</li>
+</ul>
+<b>小結：</b>距離 1 公里內、性質為素地的常規交易共兩筆 ——
+<b>48 公尺的 30.92 萬／坪</b>與 <b>181 公尺的 28.05 萬／坪</b>。</div>
+
+<h3>行情效力驗證：公告現值交叉比對</h3>
+<p>「同生活圈」不應只憑段名相鄰推論。經內政部地籍圖資系統（115 年度公告現值）逐筆查證，
+本案與最接近之比較案的<b>政府評定地價幾乎完全一致</b>：</p>
+<div class="tw"><table><thead><tr><th>地號</th><th class="n">登記面積(㎡)</th><th class="n">登記面積(坪)</th><th class="n">公告現值(元/㎡)</th><th class="n">換算(萬/坪)</th><th>地政事務所</th></tr></thead><tbody>
+<tr class="self"><td><b>自治段 367（本案）</b></td><td class="n">132.57</td><td class="n">40.1</td><td class="n">20,600</td><td class="n b">6.81</td><td>龍井</td></tr>
+<tr class="hl"><td><b>福利段 316（比較案）</b></td><td class="n">101.94</td><td class="n">30.8</td><td class="n">20,700</td><td class="n b">6.84</td><td>龍井</td></tr>
+</tbody></table></div>
+<div class="callout ok"><b>✓ 兩者公告現值差距僅 0.5%</b>，代表政府對這兩塊地的區位條件評定為<b>同一價格帶</b>。
+這是比「段名相鄰」更客觀的佐證 —— 福利段 316 的 28.05 萬／坪可直接對標，無須再做區位調整。</div>
+
+<h3>本巷透天成交實績（供規劃評估參考）</h3>
+<p>以下為福利路生活圈同為巷內之透天房地成交，<b>可供評估本案切分 4 戶後的市場端去化水準</b>。
+綠底為民國 103 – 104 年新建透天，與本案新建後之產品最為接近。</p>
+<div class="tw"><table><thead><tr><th>成交</th><th>門牌</th><th class="n">建成年</th><th class="n">地坪</th><th class="n">建坪</th><th class="n">總價(萬)</th><th class="n">含建物<br>地坪單價</th></tr></thead>
+<tbody>__HOUSE__</tbody></table></div>
+<div class="callout">四筆 <b>103 – 104 年新透天（綠底）成交於 1,420 – 3,000 萬</b>，
+單戶地坪 30.7 – 66.9 坪、建坪 55.8 – 110.4 坪。
+本案若沿巷切分 4 戶，每戶地約 30.9 坪、建約 62 坪，<b>與上列新透天之規格相當</b>。
+老屋案（民國 69 – 80 年）之地坪單價偏高，係因建物殘值極低、價格幾乎全由土地構成，且福利路 127 號臨主要道路，僅供參考。</div>
+
+<h2>七、價格與洽詢</h2>
 <div class="ask">
 <div class="t">PRICE ON REQUEST</div>
 <div class="v">價格備索</div>
@@ -238,13 +353,16 @@ BODY = """<!DOCTYPE html>
 <ul style="margin-top:6px">
 <li>三筆土地之<b>地籍圖、登記面積與 115 年度公告現值</b>（內政部地籍圖資系統查得）</li>
 <li>門前巷道（自治段 375）之<b>面積、寬度換算與共有情形</b></li>
+<li>本區<b>實價登錄成交明細</b>（112 Q1 – 115 Q2 土地與房地交易）與各案定位座標</li>
 <li><b>臺中市建築管理自治條例第 19、20 條</b>條文，與現有巷道認定六款之逐項檢視</li>
 <li>基地切分 4 戶之<b>配置示意與法定可建量試算</b></li>
 </ul></div>
 
-<h2>七、資料來源與免責</h2>
+<h2>八、資料來源與免責</h2>
 <ul style="font-size:14px;color:#555">
-<li>地籍資料與定位：內政部地籍圖資網路便民服務系統（easymap.moi.gov.tw，圖資版本 2026.08.21），以地段代碼＋地號逐筆查得面積、115 年度公告現值與宗地位置。</li>
+<li>地籍資料與定位：內政部地籍圖資網路便民服務系統（easymap.moi.gov.tw，圖資版本 2026.08.21），以地段代碼＋地號逐筆查得面積、115 年度公告現值與宗地位置；座標由 EPSG:3857 轉 WGS84，直線距離以 Haversine 公式計算至宗地幾何中心，誤差約 ±10 公尺。</li>
+<li>成交資料：內政部不動產交易實價查詢服務網，臺中市大肚區 112 年 Q1 – 115 年 Q2 買賣案件。土地單價一律以「總價 ÷ 土地坪數」自行計算，未採用實登揭露之建物單價欄位。</li>
+<li>已剔除備註載明親友／特殊關係、急買急賣、地清未辦繼承等非常規交易之比較效力；政府標讓售案僅作地板參考，親友交易案僅作上緣參考，表列時均已註明。</li>
 <li>現況照片取自 Google 街景服務（拍攝日期 2024.10 及 2026.01），巷道寬度為影像目視估計與地籍面積換算值，<b>正式數值應以都市計畫圖及建築線指定為準</b>。</li>
 <li>公告現值、面積、分區資料引自地籍查詢系統（115 年公告現值及地價），實際以地政事務所謄本為準。</li>
 <li>法定可建量為依建蔽率、容積率推算之概估值，實際須由建築師依基地條件與退縮規定規劃後確認。</li>
@@ -261,7 +379,7 @@ BODY = """<!DOCTYPE html>
 <div class="tel">0953-909-777</div>
 <div class="cm">
 瑞禾不動產經紀股份有限公司｜不動產經紀人（108）中市經紀字第 01847 號<br>
-本案採預約制提供資料與帶看　｜　製表日期：2026.10.08
+本案採預約制提供資料與帶看　｜　製表日期：2026.10.20
 </div>
 </div></footer>
 </body></html>"""
@@ -272,7 +390,9 @@ html = (BODY.replace("__CSS__", CSS)
             .replace("__IMG__", IMG)
             .replace("__SV1__", SV1)
             .replace("__SV2__", SV2)
-            .replace("__SV3__", SV3))
+            .replace("__SV3__", SV3)
+            .replace("__LAND__", LAND)
+            .replace("__HOUSE__", HOUSE))
 
 with open('buyer.html', 'w', encoding='utf-8') as f:
     f.write(html)
